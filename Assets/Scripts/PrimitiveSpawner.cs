@@ -33,12 +33,12 @@ public class PrimitiveSpawner : MonoBehaviour
     private IEnumerator SpawnObject()
     {
         var waitTime = new WaitForSeconds(_timeBetweenSpawn);
-        int i = 0;
+        int spawnPointNumber = 0;
         while (true)
         {
             int countSpawnPoint = _transforms.Count() - 1;
-            Instantiate(_collapsingObject, _spawnPoints[i], Quaternion.identity);
-            i = i == countSpawnPoint ? 0 : i + 1;
+            Instantiate(_collapsingObject, _spawnPoints[spawnPointNumber], Quaternion.identity);
+            spawnPointNumber = spawnPointNumber == countSpawnPoint ? 0 : spawnPointNumber + 1;
             yield return waitTime;
         }
     }
